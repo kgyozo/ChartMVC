@@ -9,11 +9,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.epam.chart.repository.Customer;
 import com.epam.chart.repository.Office;
-import com.epam.chart.repository.OfficeList;
 import com.epam.chart.service.CustomerService;
 
 @Controller
@@ -35,21 +33,9 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value = "/office", produces="application/json")
-//	@ResponseBody
 	public @ResponseBody List<Office> getOfficeList(/*ModelMap model*/) {
-		//model.addAttribute("customerList", customerService.listOfficeHours());
-		//return "officehours";
 		List<Office> office = customerService.listOfficeHours();
 		return office;
 	}
 
-	@RequestMapping(value = "/officexml")
-//	@ResponseBody
-	public @ResponseBody OfficeList getOfficeListXML(/*ModelMap model*/) {
-		//model.addAttribute("customerList", customerService.listOfficeHours());
-		//return "officehours";
-		OfficeList officeList = new OfficeList();
-		officeList.setOffices(customerService.listOfficeHours());
-		return officeList;
-	}
 }
