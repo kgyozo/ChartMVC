@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 
 public class OrderRepositoryImpl implements OrderOperations {
 
-	@Autowired
+	//@Autowired
 	private MongoOperations mongo;
 
 	public List<Order> findOrdersByType(String t) {

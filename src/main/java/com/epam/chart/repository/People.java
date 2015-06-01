@@ -4,13 +4,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document
+//@Document
 public class People {
 
-	@Id
+	//@Id
 	private String id;
 	
-	@Field("name")
+	//@Field("name")
 	private String userName;
 	private int age;
 	private String profession;

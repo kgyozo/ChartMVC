@@ -31,4 +31,7 @@
                 </listener-class>
 	</listener>
 
+<welcome-file-list>
+        <welcome-file>customerdetails.jsp</welcome-file>
+    </welcome-file-list> 
 </web-app>
