@@ -16,7 +16,7 @@
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/" />
+		<property name="prefix" value="/pages/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 
@@ -28,6 +28,11 @@
 	<bean id="customermongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongo" ref="mongo" />
 		<constructor-arg name="databaseName" value="customerdb" />
+	</bean>
+	
+	<bean id="officemongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongo" ref="mongo" />
+		<constructor-arg name="databaseName" value="myDb" />
 	</bean>
 	
 

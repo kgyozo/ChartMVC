@@ -6,6 +6,10 @@
 	version="2.5">
 	
 	<display-name>Chart Web Application</display-name>
+	
+	<welcome-file-list>
+        <welcome-file>pages/customerdetails.jsp</welcome-file>
+    </welcome-file-list>
  
 	<servlet>
 		<servlet-name>mvc-dispatcher</servlet-name>
@@ -31,7 +35,4 @@
                 </listener-class>
 	</listener>
 
-<welcome-file-list>
-        <welcome-file>customerdetails.jsp</welcome-file>
-    </welcome-file-list> 
 </web-app>
