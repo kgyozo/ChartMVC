@@ -14,7 +14,7 @@
 
 	<context:component-scan base-package="com.epam.chart" />
 
-	<bean
+ 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/pages/" />
 		<property name="suffix" value=".jsp" />
@@ -29,11 +29,10 @@
 		<constructor-arg name="mongo" ref="mongo" />
 		<constructor-arg name="databaseName" value="customerdb" />
 	</bean>
-	
+
 	<bean id="officemongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongo" ref="mongo" />
 		<constructor-arg name="databaseName" value="myDb" />
 	</bean>
-	
 
 </beans> 

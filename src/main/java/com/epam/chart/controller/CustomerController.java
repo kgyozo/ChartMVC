@@ -1,6 +1,6 @@
 package com.epam.chart.controller;
 
-import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,12 +8,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
-import org.springframework.web.servlet.view.RedirectView;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.epam.chart.repository.Customer;
-import com.epam.chart.repository.CustomerDate;
+import com.epam.chart.repository.Office;
+import com.epam.chart.repository.OfficeList;
 import com.epam.chart.service.CustomerService;
 
 @Controller
@@ -34,9 +34,22 @@ public class CustomerController {
 		return "redirect:/customer";
 	}
 
-	@RequestMapping(value = "/office", method = RequestMethod.GET)
-	public String getOfficeList(ModelMap model) {
-		model.addAttribute("customerList", customerService.listOfficeHours());
-		return "officehours";
+	@RequestMapping(value = "/office", produces="application/json")
+//	@ResponseBody
+	public @ResponseBody List<Office> getOfficeList(/*ModelMap model*/) {
+		//model.addAttribute("customerList", customerService.listOfficeHours());
+		//return "officehours";
+		List<Office> office = customerService.listOfficeHours();
+		return office;
+	}
+
+	@RequestMapping(value = "/officexml")
+//	@ResponseBody
+	public @ResponseBody OfficeList getOfficeListXML(/*ModelMap model*/) {
+		//model.addAttribute("customerList", customerService.listOfficeHours());
+		//return "officehours";
+		OfficeList officeList = new OfficeList();
+		officeList.setOffices(customerService.listOfficeHours());
+		return officeList;
 	}
 }
